@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "All build c++",
+      "type": "shell",
+      "command": "/usr/bin/cpp",
+      "args": ["-std=c++17", "./src/**.cpp", "-o", "./bin/Main.out"]
+    },
+    {
+      "label": "Run + all build",
+      "type": "shell",
+      "command": "./bin/Main.out",
+      "dependsOn": ["All build c++"],
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}
