@@ -13,6 +13,11 @@ public:
         this->student = student;
         this->mataKuliah.push_back(mk);
     }
+
+    void addMk(MataKuliah mk)
+    {
+        this->mataKuliah.push_back(mk);
+    }
     // void display()
     // {
     //     MataKuliah matkul = mhs.khs->mataKuliah;

@@ -27,6 +27,10 @@ private:
         MataKuliah("IF201", "Basis Data", 3),
     };
 
+    // vector<Khs> listKhs = {
+    //     Khs
+    // }
+
 public:
     Database(){};
 
@@ -41,21 +45,21 @@ public:
             cout << "   ALAMAT\t: " << mhs.address << endl;
             cout << "   SEMESTER\t: " << mhs.semester << endl;
             cout << "   PRODI\t: " << mhs.prodi->name << endl;
-            cout << "   MATAKULIAH\t: ";
-            int i = 0;
-            for (MataKuliah mk : mhs.khs->mataKuliah)
-            {
-                if (i == 0)
-                {
-                    cout << "- " << mk.name << endl;
-                    i++;
-                }
-                else
-                {
-                    cout << "\t\t  - " << mk.name << endl;
-                }
-            }
-            // cout << "   MATAKULIAH :" << mhs.display() << endl;
+            // cout << "   MATAKULIAH\t: ";
+            // int i = 0;
+            // for (MataKuliah mk : mhs.khs->mataKuliah)
+            // {
+            //     if (i == 0)
+            //     {
+            //         cout << "- " << mk.name << endl;
+            //         i++;
+            //     }
+            //     else
+            //     {
+            //         cout << "\t\t  - " << mk.name << endl;
+            //     }
+            // }
+            cout << "   MATAKULIAH :" << mhs.khs->mataKuliah[0].name << endl;
 
             cout << "====================================================" << endl;
         }
@@ -104,17 +108,25 @@ public:
         displayProdi();
         cout << "Pilih Nomor Prodi >> ";
         cin >> pd;
-        Mahasiswa mhs = Mahasiswa(nama, nim, alamat, semester, &listProdi[pd - 1]);
-        listMhs.push_back(mhs);
+
         bool addMk = true;
         int pilih = 0;
+        int pilihKhs = 0;
+        Khs khs = Khs(nama, listMatkul[0]);
+        Mahasiswa mhs = Mahasiswa(nama, nim, alamat, semester, &listProdi[pd - 1], &khs);
+        listMhs.push_back(mhs);
         while (addMk)
         {
             displayMk();
             cout << "Pilih Nomor Matakuliah >> ";
             cin >> mk;
-            listMatkul[mk - 1].nilai = 0;
-            mhs.setKhs(nama, listMatkul[mk - 1]);
+            mhs.khs->addMk(listMatkul[mk - 1]);
+            mhs.khs->mataKuliah[mk - 1].setNilai(0);
+            // mhs.khs->mataKuliah[mk - 1].nilai = 0;
+
+            // mhs.listMatkul[mk - 1].nilai = 0;
+            // mhs.addMk(listMatkul[mk - 1]);
+            // mhs.setKhs(nama, listMatkul[mk - 1]);
 
             cout << "[1]Ya [2]Tidak" << endl;
             cout << "Tambah Matakuliah?? >> ";
@@ -155,7 +167,7 @@ public:
         displayProdi();
         cout << "Pilih Nomor Prodi >> ";
         cin >> pd;
-        listMhs.push_back(Mahasiswa(nama, nim, alamat, semester, &listProdi[pd - 1]));
+        // listMhs.push_back(Mahasiswa(nama, nim, alamat, semester, &listProdi[pd - 1]));
         cout << "Pilih Nomor Matakuliah >> ";
         cin >> mk;
     }

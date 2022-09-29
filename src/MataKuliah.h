@@ -15,5 +15,9 @@ public:
         this->sks = sks;
     }
 
+    void setNilai(int nilai)
+    {
+        this->nilai = nilai;
+    }
 };
 #endif

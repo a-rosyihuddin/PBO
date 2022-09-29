@@ -12,21 +12,21 @@ public:
     Prodi *prodi;
     string name, address, nim;
     int semester;
-    Mahasiswa(string name, string nim, string address, int semester, Prodi *prodi)
+    Mahasiswa(string name, string nim, string address, int semester, Prodi *prodi, Khs *khs)
     {
         this->name = name;
         this->address = address;
         this->semester = semester;
         this->nim = nim;
         this->prodi = prodi;
-        // this->khs
+        // this->khs = khs;
     }
 
-    void setKhs(string nama, MataKuliah mk)
-    {
-        // Khs khs = Khs(nama, mk)
-        this->khs->mataKuliah.push_back(mk);
-    }
+    // void setKhs(string nama, MataKuliah mk)
+    // {
+    //     // Khs khs = Khs(nama, mk)
+    //     this->khs->mataKuliah.push_back(mk);
+    // }
 
     void display()
     {
