@@ -10,20 +10,65 @@ int main(int argc, char const *argv[])
 {
 
     Database database;
+    bool start = true;
+    int pilihan;
+    while (start)
+    {
+        cout << "==================SIAKAD TRUNOJOYO==================" << endl;
+        cout << "1. Data Mahasiswa\n2. Data Matakuliah\n3. Data Prodi" << endl;
+        cout << "Pilihan >> ";
+        cin >> pilihan;
+        if (pilihan == 1)
+        {
+            bool tambah = true;
+            while (tambah)
+            {
+                // Display Data Mahasiswa
+                database.displayMhs();
+                cout << "Pilihan >> ";
+                cin >> pilihan;
+                if (pilihan == 1)
+                {
+                    // Tambah Data Mahasiswa
+                    database.tambahMhs();
+                }
+                else if (pilihan == 2)
+                {
+                    // Hapus Data Mahasiswa
+                    database.hapusMhs();
+                }
+                else if (pilihan == 3)
+                {
+                    // Edit Data Mahasiswa
+                }
+                else
+                {
+                    cout << "\n====================================================" << endl;
+                    cout << "Pilihan Tidak Tersedia" << endl;
+                    cout << "====================================================\n";
+                }
+            }
+        }
 
-    // Mahasiswa Ke-1
-    // MataKuliah pbo = MataKuliah("Pemrograman Berorientasi Objek", "PBO", 3);
-    // Khs k1 = Khs("Ahmad Rosyihuddin", 90, &pbo);
-    // Mahasiswa rosik = Mahasiswa("Ahmad Rosyihuddin", "Gresik", 3, &k1);
-    // Prodi t_Informatika = Prodi("Teknik Informatika", "TIF", &rosik);
-    // rosik.display();
+        else if (pilihan == 2)
+        {
+            database.displayMk();
+        }
+        else if (pilihan == 3)
+        {
+            database.displayProdi();
+        }
+        else if (pilihan == 4)
+        {
+            start = false;
+        }
+        else
+        {
+            cout << "\n====================================================" << endl;
+            cout << "Pilihan Tidak Tersedia" << endl;
+            cout << "====================================================\n";
+        }
+    }
 
-    // cout << "========================" << endl;
-    // // Mahsiswa Ke-2
-    // MataKuliah alpro = MataKuliah("Algoritma Pemrograman", "Alpro", 3);
-    // Khs k2 = Khs("Andi Mustofa", 85, &alpro);
-    // Mahasiswa andi = Mahasiswa("Andi Mustofa", "Bojonegoro", 5, &k2);
-    // Prodi t_Industri = Prodi("Teknik Industri", "TI", &andi);
-    // andi.display();
     return 0;
 }

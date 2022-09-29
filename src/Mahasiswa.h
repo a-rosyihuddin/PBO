@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include "Khs.h"
+#include "Prodi.h"
 using namespace std;
 class Mahasiswa
 {
