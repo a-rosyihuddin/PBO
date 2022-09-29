@@ -4,7 +4,7 @@
 #include <vector>
 #include "Mahasiswa.h"
 #include "Prodi.h"
-#include "Matakuliah.h"
+#include "MataKuliah.h"
 class Database
 {
 private:
@@ -16,9 +16,9 @@ private:
     };
 
     vector<Mahasiswa> listMhs = {
-        Mahasiswa("Ahmad Rosyihuddin", "200411100126", "Gresik", 5, &listProdi[0]),
-        Mahasiswa("Ahmad Fanani", "200411100143", "Jombang", 5, &listProdi[1]),
-        Mahasiswa("Ari Andi Mustofa", "200411100112", "Bojonegoro", 5, &listProdi[2]),
+        // Mahasiswa("Ahmad Rosyihuddin", "200411100126", "Gresik", 5, &listProdi[0]),
+        // Mahasiswa("Ahmad Fanani", "200411100143", "Jombang", 5, &listProdi[1]),
+        // Mahasiswa("Ari Andi Mustofa", "200411100112", "Bojonegoro", 5, &listProdi[2]),
     };
 
     vector<MataKuliah> listMatkul = {
@@ -41,11 +41,24 @@ public:
             cout << "   ALAMAT\t: " << mhs.address << endl;
             cout << "   SEMESTER\t: " << mhs.semester << endl;
             cout << "   PRODI\t: " << mhs.prodi->name << endl;
-            // cout << "MATAKULIAH :" << mhs.khs << endl;
+            cout << "   MATAKULIAH\t: ";
+            int i = 0;
+            for (MataKuliah mk : mhs.khs->mataKuliah)
+            {
+                if (i == 0)
+                {
+                    cout << "- " << mk.name << endl;
+                    i++;
+                }
+                else
+                {
+                    cout << "\t\t  - " << mk.name << endl;
+                }
+            }
+            // cout << "   MATAKULIAH :" << mhs.display() << endl;
+
             cout << "====================================================" << endl;
         }
-        cout << "[1]Tambah Data [2]Hapus Data [3]Edit Data [4]Kembali" << endl;
-        cout << "====================================================" << endl;
     }
 
     void displayMk()
@@ -59,8 +72,6 @@ public:
             cout << "   SKS\t: " << mk.sks << endl;
             cout << "====================================================" << endl;
         }
-        cout << "[1]Tambah Data [2]Hapus Data [3]Edit Data [4]Kembali" << endl;
-        cout << "====================================================" << endl;
     }
 
     void displayProdi()
@@ -70,11 +81,9 @@ public:
         for (Prodi pd : listProdi)
         {
             cout << i++ << ". KODE\t:" << pd.code << endl;
-            cout << "   NAMA MATAKULIAH\t:" << pd.name << endl;
+            cout << "   NAMA\t:" << pd.name << endl;
             cout << "====================================================" << endl;
         }
-        cout << "[1]Tambah Data [2]Hapus Data [3]Edit Data [4]Kembali" << endl;
-        cout << "====================================================" << endl;
     }
 
     void tambahMhs()
@@ -97,9 +106,24 @@ public:
         cin >> pd;
         Mahasiswa mhs = Mahasiswa(nama, nim, alamat, semester, &listProdi[pd - 1]);
         listMhs.push_back(mhs);
-        cout << "Pilih Nomor Matakuliah >> ";
-        cin >> mk;
-        Khs khs = Khs(mhs.name, 0, listMatkul[mk - 1]);
+        bool addMk = true;
+        int pilih = 0;
+        while (addMk)
+        {
+            displayMk();
+            cout << "Pilih Nomor Matakuliah >> ";
+            cin >> mk;
+            listMatkul[mk - 1].nilai = 0;
+            mhs.setKhs(nama, listMatkul[mk - 1]);
+
+            cout << "[1]Ya [2]Tidak" << endl;
+            cout << "Tambah Matakuliah?? >> ";
+            cin >> pilih;
+            if (pilih == 2)
+            {
+                addMk = false;
+            }
+        }
     }
 
     void hapusMhs()

@@ -14,5 +14,6 @@ public:
         this->code = code;
         this->sks = sks;
     }
+
 };
 #endif

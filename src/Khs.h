@@ -1,24 +1,25 @@
 #ifndef KHS_H
 #define KHS_H
 #include <iostream>
-#include "Matakuliah.h"
+#include <vector>
+#include "MataKuliah.h"
 class Khs
 {
 public:
     vector<MataKuliah> mataKuliah;
     string student;
-    int nilai;
-    Khs(string student, int nilai, vector<MataKuliah> mataKuliah)
+    Khs(string student, MataKuliah mk)
     {
         this->student = student;
-        this->nilai = nilai;
-        mataKuliah.push_back(mataKuliah);
+        this->mataKuliah.push_back(mk);
     }
-    void display()
-    {
-        cout << "Nama Mahasiswa : " << student << endl;
-        // cout << "Mata Kuliah : " << mataKuliah->name << endl;
-        cout << "Nilai : " << nilai << endl;
-    }
+    // void display()
+    // {
+    //     MataKuliah matkul = mhs.khs->mataKuliah;
+    //     for (MataKuliah mk : matkul)
+    //     {
+    //         cout << "\t\t\t " << mk.name;
+    //     }
+    // }
 };
 #endif

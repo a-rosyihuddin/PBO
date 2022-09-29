@@ -19,13 +19,22 @@ public:
         this->semester = semester;
         this->nim = nim;
         this->prodi = prodi;
+        // this->khs
     }
 
-    // void setKhs(MataKuliah *mk, int nilai)
-    // {
-    //     this->khs = Khs(this->name, nilai, &mk);
-    //     // mataKuliah->push_back(mk);
-    // }
+    void setKhs(string nama, MataKuliah mk)
+    {
+        // Khs khs = Khs(nama, mk)
+        this->khs->mataKuliah.push_back(mk);
+    }
+
+    void display()
+    {
+        for (MataKuliah mk : this->khs->mataKuliah)
+        {
+            cout << "\t\t " << mk.name;
+        }
+    }
 
     // void display()
     // {

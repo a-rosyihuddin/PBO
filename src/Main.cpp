@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Khs.h"
-#include "Matakuliah.h"
+#include "MataKuliah.h"
 #include "Mahasiswa.h"
 #include "Prodi.h"
 #include "Database.h"
@@ -25,6 +25,8 @@ int main(int argc, char const *argv[])
             {
                 // Display Data Mahasiswa
                 database.displayMhs();
+                cout << "[1]Tambah Data [2]Hapus Data [3]Edit Data [4]Kembali" << endl;
+                cout << "====================================================" << endl;
                 cout << "Pilihan >> ";
                 cin >> pilihan;
                 if (pilihan == 1)
