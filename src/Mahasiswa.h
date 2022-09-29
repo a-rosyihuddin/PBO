@@ -8,7 +8,7 @@ using namespace std;
 class Mahasiswa
 {
 public:
-    vector<Khs> *khs;
+    Khs *khs;
     Prodi *prodi;
     string name, address, nim;
     int semester;
@@ -20,6 +20,12 @@ public:
         this->nim = nim;
         this->prodi = prodi;
     }
+
+    // void setKhs(MataKuliah *mk, int nilai)
+    // {
+    //     this->khs = Khs(this->name, nilai, &mk);
+    //     // mataKuliah->push_back(mk);
+    // }
 
     // void display()
     // {

@@ -15,7 +15,7 @@ int main(int argc, char const *argv[])
     while (start)
     {
         cout << "==================SIAKAD TRUNOJOYO==================" << endl;
-        cout << "1. Data Mahasiswa\n2. Data Matakuliah\n3. Data Prodi" << endl;
+        cout << "1. Data Mahasiswa\n2. Data Matakuliah\n3. Data Prodi\n4. Exit" << endl;
         cout << "Pilihan >> ";
         cin >> pilihan;
         if (pilihan == 1)
@@ -41,6 +41,10 @@ int main(int argc, char const *argv[])
                 {
                     // Edit Data Mahasiswa
                 }
+                else if (pilihan == 4)
+                {
+                    tambah = false;
+                }
                 else
                 {
                     cout << "\n====================================================" << endl;
@@ -53,6 +57,38 @@ int main(int argc, char const *argv[])
         else if (pilihan == 2)
         {
             database.displayMk();
+            bool tambah = true;
+            while (tambah)
+            {
+                // Display Data Mahasiswa
+                database.displayMk();
+                cout << "Pilihan >> ";
+                cin >> pilihan;
+                if (pilihan == 1)
+                {
+                    // Tambah Data Mahasiswa
+                    database.tambahMk();
+                }
+                else if (pilihan == 2)
+                {
+                    // Hapus Data Mahasiswa
+                    database.hapusMk();
+                }
+                else if (pilihan == 3)
+                {
+                    // Edit Data Mahasiswa
+                }
+                else if (pilihan == 4)
+                {
+                    tambah = false;
+                }
+                else
+                {
+                    cout << "\n====================================================" << endl;
+                    cout << "Pilihan Tidak Tersedia" << endl;
+                    cout << "====================================================\n";
+                }
+            }
         }
         else if (pilihan == 3)
         {
