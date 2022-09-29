@@ -5,14 +5,14 @@
 class Khs
 {
 public:
-    vector<MataKuliah> *mataKuliah = {};
+    vector<MataKuliah> mataKuliah;
     string student;
     int nilai;
-    Khs(string student, int nilai, vector<MataKuliah> *mataKuliah)
+    Khs(string student, int nilai, vector<MataKuliah> mataKuliah)
     {
         this->student = student;
         this->nilai = nilai;
-        mataKuliah->push_back(mataKuliah);
+        mataKuliah.push_back(mataKuliah);
     }
     void display()
     {
